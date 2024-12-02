@@ -48,6 +48,10 @@ If one of the tasks is not working or you ran out of time you can always check-o
 
 Cool! We've just managed to compile our application, without actually having to install any kind of SDK or tool manually! This is the power of the devcontainers & multi-stage docker builds for developers and can really simplify onboarding of new team members.
 
+You can also share your links that GitHub codespaces generate when you're running your application, but by default the connection is set to private! You can change the visibilty in the same ports tab as before as you can see in the image. You will also need this later as we will want to start curl requests to the application to update the workshop.
+
+![Change port visibility](docs/vscode-port-visiblity.png)
+
 ### Task
 Right now we've got a working "local" development environment from we can develop, however our goal is as followed:
 * We want to be able to work with multiple developers and have consistent & repeatable builds for our application
@@ -107,9 +111,11 @@ The next step is to now improve upon this, so that you as a developer can focus 
     * On "main" branch, should be tagged as such <name>:latest
     * On other branches, should be tagged as such <name>:dev-<commitHash> with the hash being a substring of 8 characters
 * The dev Openshift environment should always the use the :latest image that is created when a developer pushes code to main and the build succeeds. Create a trigger in your pipeline that automatically restarts the deployment on Openshift
+* Use a super-lightweight Docker base image for the Golang run image
+    * Right now we're using golang for both but this is not necessary and should be changed to make the run image smaller
+* Write a Go test & add tests execution to the multi-stage Dockerfile
 * Add a metrics endpoint to your application that will give you insights into the application performance
 * If you merge to "main" and your build succeeds at an extra step that Restarts your deployment on Openshift to redeploy the main image immediately
-* Write a Go test for our /workshop endpoint
 
 # Directory structure
 

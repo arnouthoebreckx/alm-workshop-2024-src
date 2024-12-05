@@ -61,7 +61,7 @@ Right now we've got a working "local" development environment from we can develo
 The assignment is as followed:
 * Create a [GitHub Actions pipeline](https://docs.github.com/en/actions/writing-workflows/quickstart#creating-your-first-workflow):
     * Create the directory .github/workflows and add a ci.yaml file
-        * You can now the file however you want just make it clear what it does for you :)
+        * You can name the file however you want just make it clear what it does for you :)
     * Run the container build & run pipeline to create a container image artifact
         * HINT: You've already done this locally
     * Push the created container to the [quay.io](https://quay.io/) container registry using a [Robot Account](https://docs.quay.io/glossary/robot-accounts.html)
